@@ -46,6 +46,8 @@ public class mainActivity extends Activity {
             public void onClick(View v) {
                 itemList.add("item " + itemList.size());
                 arrayAdapter.notifyDataSetChanged();
+                selectedItem = itemList.size() - 1;
+                Log.i("LIST_VIEW", "selected:  " + selectedItem);
             }
         });
 
@@ -55,10 +57,13 @@ public class mainActivity extends Activity {
             public void onClick(View v) {
                 try {
                     itemList.remove(selectedItem);
+                    selectedItem = itemList.size() - 1;
                     arrayAdapter.notifyDataSetChanged();
                 } catch ( IndexOutOfBoundsException e ) {
 
                 }
+
+                //itemList.remove(selectedItem);
             }
         });
 
